@@ -1,0 +1,41 @@
+article {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding: 10px 200px;
+}
+
+article h3 {
+    color: #5c5c5c;
+}
+
+article:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+#featured-image {
+    max-width: 900px;
+    height: auto;
+    padding: 3%;
+    margin: 0 auto;
+}
+
+#featured-image img {
+    width: 100%;
+    height: auto;
+}
+
+#goback {
+    background-color: orangered;
+    color: white;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    margin: 5% 1%;
+    text-transform: uppercase;
+}
+  
+
+@media screen and (max-width: 980px) {
+    article {
+        padding: 10px;
+    }
+}

@@ -1,0 +1,43 @@
+body {
+    background-color: #efefef;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #274472;
+    text-decoration: underline;
+}
+
+article {
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding: 10px;
+}
+
+article h3 {
+    color: #5c5c5c;
+}
+
+article:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.read-more {
+    color: orangered;
+    text-decoration: none;
+}
+
+.read-more:hover, .read-more:visited {
+    color: orangered;
+    text-decoration: underline;
+}
+
+footer {
+    margin-top: 5%;
+    text-align: center;
+    padding: 1%;
+    background-color: #274472;
+    color: white;
+}
