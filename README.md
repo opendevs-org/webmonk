@@ -5,7 +5,8 @@
 
 ### 🏠 [Homepage](https://github.com/open-devs/webmonk)
 
-#### [Day 1](https://github.com/open-devs/webmonk/tree/master/Day%201)
+#### [Day 1 - HTML](https://github.com/open-devs/webmonk/tree/master/Day%201)
+#### [Day 2 - CSS](https://github.com/open-devs/webmonk/tree/master/Day%202)
 
 ## Usage
 
