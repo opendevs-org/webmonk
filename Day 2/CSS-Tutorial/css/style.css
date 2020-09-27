@@ -1,0 +1,118 @@
+/* h1 { NOTE Power Struggle Code
+    color: yellow;
+} */
+
+/* body { NOTE Element Selector Code
+    color: red;
+}
+
+h1, h2 {
+    color: blue;
+}
+
+p {
+    color: grey;
+} */
+
+/* h1#heading { NOTE ID Selector Code
+    color: orange;
+}
+
+article p {
+    color: yellow;
+}
+
+article > span {
+    color: yellowgreen;
+}
+
+article .colored {
+    color: blueviolet;
+} */
+
+
+/* div#parent { NOTE Inheritance Code
+    font-size: x-large;
+}
+
+#child {
+    color: blue;
+} */
+
+/* p { NOTE Last Rule Code
+    color: red;
+}
+
+p {
+    color: brown;
+} */
+
+/* #specificity-id { NOTE Specificity Code
+    color: yellow;
+}
+
+.specificity-class {
+    color: red;
+}
+
+p {
+    color: blue;
+} */
+
+/* h1 { NOTE Unit Code: Pixel
+    font-size: 25px;
+} */
+
+/* div.inner { NOTE Unit Code: Percentage
+    width: 50%;
+    height: 50%;
+    background: red;
+} */
+
+/* div#outer { NOTE Unit Code: Percentage
+    width: 500px;
+    height: 500px;
+    background: blue;
+} */
+
+/* NOTE em code
+div { NOTE in rem it won't change a thing as it depends on root
+    font-size: 20px;
+}
+
+.relative { NOTE Unit Code: Em
+    font-size: 2em;
+}
+
+.absolute {
+    font-size: 32px;
+} */
+
+.media {
+    width: 400px;
+    height: 400px;
+    background-color: red;
+}
+
+
+@media screen and (max-width : 400px) {
+    .media {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
