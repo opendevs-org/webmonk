@@ -8,6 +8,7 @@
 #### [Day 1 - HTML](https://github.com/open-devs/webmonk/tree/master/Day%201)
 #### [Day 2 - CSS](https://github.com/open-devs/webmonk/tree/master/Day%202)
 #### [Day 3 - Course Day 1: Introduction](https://github.com/open-devs/webmonk/tree/master/Course%20Day%201)
+#### [Day 4 - Course Day 2: HTML, CSS, Git & GitHub](https://github.com/open-devs/webmonk/tree/master/Course%20Day%202)
 
 ## Usage
 
