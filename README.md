@@ -11,7 +11,7 @@
 
 ## Usage
 
-```js
+```sh
 $ git clone https://github.com/open-devs/webmonk
 ```
 
