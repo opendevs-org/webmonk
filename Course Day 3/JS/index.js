@@ -72,7 +72,7 @@ let name = "John";
 // embed a variable
 console.log(`Hello, ${name}!`); // Hello, John!
 // embed an expression
-console.log( `the result is ${1 + 2}` ); // the result is 3
+console.log(`the result is ${1 + 2}`); // the result is 3
 
 /**
  * -------------------BOOLEAN
@@ -82,7 +82,7 @@ console.log( `the result is ${1 + 2}` ); // the result is 3
 let nameFieldChecked = true;
 console.log(nameFieldChecked);
 let isGreater = 4 > 1;
-console.log( isGreater ); // true (the comparison result is "yes")
+console.log(isGreater); // true (the comparison result is "yes")
 
 /**
  * -------------------NULL
@@ -144,9 +144,9 @@ let arr = new Array();
 let arr = [];
 */
 let fruits = ["Apple", "Orange", "Plum"];
-console.log( fruits[0] ); // Apple
-console.log( fruits[1] ); // Orange
-console.log( fruits[2] ); // Plum
+console.log(fruits[0]); // Apple
+console.log(fruits[1]); // Orange
+console.log(fruits[2]); // Plum
 
 // We can replace an element:
 fruits[2] = 'Pear'; // now ["Apple", "Orange", "Pear"]
@@ -169,6 +169,7 @@ console.log(tempArr);
  * pop: takes an element from the end.
  * shift: Extracts the first element of the array and returns it.
  * unshift: Add the element to the beginning of the array.
+ * length: Access the length of the array.
  * delete: Changes the element to undefined.
  *** Using delete may leave undefined holes in the array. Use pop() or shift() instead.
  *** Methods push and unshift can add multiple elements at once:
@@ -187,13 +188,13 @@ console.log(fruits); // Apple, Orange
 // Methods that work with the beginning of the array: 
 // shift
 let fruits = ["Apple", "Orange", "Pear"];
-console.log( fruits.shift() ); // remove Apple
-console.log( fruits ); // Orange, Pear
+console.log(fruits.shift()); // remove Apple
+console.log(fruits); // Orange, Pear
 
 // unshift
 let fruits = ["Orange", "Pear"];
 fruits.unshift('Apple');
-console.log( fruits ); // Apple, Orange, Pear
+console.log(fruits); // Apple, Orange, Pear
 
 // delete
 let fruits = ["Banana", "Orange", "Apple", "Mango"];
@@ -222,8 +223,8 @@ let user = {     // an object
 // We can add, remove and read files from it any time.
 // Property values are accessible using the dot notation or []
 // get property values of the object:
-console.log( user.name ); // John
-console.log( user.age ); // 30
+console.log(user.name); // John
+console.log(user.age); // 30
 
 // The value can be of any type. Let’s add a boolean one:
 user.isAdmin = true;
@@ -247,7 +248,7 @@ let user = {
 
 const user = {
     name: "John"
-};  
+};
 user.name = "Pete"; // It might seem that the line (*) would cause an error, but no. The const fixes the value of user, but not its contents.
 console.log(user.name); // Pete
 
@@ -258,3 +259,213 @@ let user = {
 console.log(Object.keys(user)); // = ["name", "age"]
 console.log(Object.values(user)); // = ["John", 30]
 console.log(Object.entries(user)); // = [ ["name","John"], ["age",30] ]
+
+for (let i in user) {
+    console.log(i, user[i]);
+}
+
+
+/** ------------------------------------------------------LOOPS----------------------------------------------------------  */
+
+/**
+ * --------------------WHILE Loop
+ * NOTE: While the condition is truthy, the code from the loop body is executed.
+ */
+
+let i = 0;
+while (i < 3) { // shows 0, then 1, then 2
+    console.log(i);
+    i++;
+}
+
+/**
+ * --------------------DO-WHILE Loop
+ * NOTE: The loop will first execute the body, then check the condition, and, while it’s truthy, execute it again and again.
+ */
+let i = 0;
+do {
+  console.log(i);
+  i++;
+} while (i < 3);
+
+/**
+ * --------------------FOR Loop
+ * NOTE: The for loop is more complex, but it’s also the most commonly used loop.
+ * for (begin; condition; step) {
+ *   // ... loop body ...
+ * }
+ */
+for (let i = 0; i < 3; i++) { // shows 0, then 1, then 2
+    console.log(i);
+}
+
+// Any part of for can be skipped.
+let i = 0; // we have i already declared and assigned
+
+for (; i < 3; i++) { // no need for "begin"
+  console.log( i ); // 0, 1, 2
+}
+
+let i = 0;
+
+for (; i < 3;) {
+  console.log( i++ );
+}
+
+for (;;) {
+    // repeats without limits
+    console.log('hey');
+}
+
+// break keyword
+let sum = 0;
+
+while (true) {
+  let value = +prompt("Enter a number", '');
+  if (!value) break;
+  sum += value;
+}
+console.log( 'Sum: ' + sum );
+
+// continue keyword
+for (let i = 0; i < 10; i++) {
+    // if true, skip the remaining part of the body
+    if (i % 2 == 0) continue;
+    console.log(i); // 1, then 3, 5, 7, 9
+}
+
+
+/** ------------------------------------------------------CONDITIONALS----------------------------------------------------------  */
+let year = 2015;
+
+if (year < 2015) {
+  console.log('Too early...');
+} else if (year > 2015) {
+  console.log('Too late');
+} else {
+  console.log('Exactly!');
+}
+
+let accessAllowed = (year > 2015) ? true : false;
+console.log(accessAllowed);
+
+/** ------------------------------------------------------INTERACTION WITH JS----------------------------------------------------------  */
+
+// NOTE: alert
+alert("Hello");
+
+// NOTE: prompt : The function prompt accepts two arguments: prompt(title, [default]);
+/**
+ * It shows a modal window with a text message, an input field for the visitor, and the buttons OK/Cancel.
+ * title: The text to show the visitor.
+ * default: An optional second parameter, the initial value for the input field.
+ */
+let age = prompt('How old are you?', 100);
+alert(`You are ${age} years old!`); // You are 100 years old!
+
+// NOTE: Confirm
+/**
+ * The function confirm shows a modal window with a question and two buttons: OK and Cancel.
+ * The result is true if OK is pressed and false otherwise.
+ */
+let isBoss = confirm("Are you the boss?");
+console.log( isBoss ); // true if OK is pressed
+
+
+/** ------------------------------------------------------OPERATORS----------------------------------------------------------  */
+
+// NOTE: exponential operators
+console.log(4**(1/2));
+
+// NOTE: guess some examples?
+console.log('1' + 2);
+console.log(2 + 2 + '1' );
+console.log( 6 - '2' );
+console.log( '6' / '2' );
+
+// NOTE: assignment operators
+let a = 1;
+let b = 2;
+let c = 3 - (a = b + 1);
+alert( a ); // 3
+alert( c ); //
+
+let a, b, c;
+a = b = c = 2 + 2;
+alert( a ); // 4
+alert( b ); // 4
+alert( c ); // 4
+
+// NOTE: modify in place operators
+let n = 2;
+n += 5; // now n = 7 (same as n = n + 5)
+n *= 2; // now n = 14 (same as n = n * 2)
+alert( n ); // 14
+
+let n = 2;
+n *= 3 + 5;
+alert( n ); // 16  (right part evaluated first, same as n *= 8)
+
+// NOTE: Increment decrement operators
+let counter = 2;
+counter++;        // works the same as counter = counter + 1, but is shorter
+alert( counter ); // 3
+
+let counter = 2;
+counter--;        // works the same as counter = counter - 1, but is shorter
+alert( counter ); // 1
+
+let counter = 1;
+let a = ++counter; // (*)
+alert(a); // 2
+
+let counter = 1;
+let a = counter++; // (*) changed ++counter to counter++
+alert(a); // 1
+
+// NOTE: Boolean operators
+alert( 2 > 1 );  // true (correct)
+alert( 2 == 1 ); // false (wrong)
+alert( 2 != 1 ); // true (correct)
+
+let result = 5 > 4; // assign the result of the comparison
+alert( result ); // true
+
+alert( 'Z' > 'A' ); // true
+alert( 'Glow' > 'Glee' ); // true
+alert( 'Bee' > 'Be' ); // true
+
+alert( '2' > 1 ); // true, string '2' becomes a number 2
+alert( '01' == 1 ); // true, string '01' becomes a number 1
+
+alert( true == 1 ); // true
+alert( false == 0 ); // true
+
+let a = 0;
+alert( Boolean(a) ); // false
+let b = "0";
+alert( Boolean(b) ); // true
+alert(a == b); // true!
+
+alert( 0 == false ); // true
+alert( '' == false ); // true
+alert( null == undefined ); // true
+
+alert( 0 === false ); // false, because the types are different
+alert( null === undefined ); // false
+
+// NOTE: Logical operators
+alert( true || true );   // true
+alert( false || true );  // true
+alert( true || false );  // true
+alert( false || false ); // false
+
+alert( true && true );   // true
+alert( false && true );  // false
+alert( true && false );  // false
+alert( false && false ); // false
+
+alert( !true ); // false
+alert( !0 ); // true
+
+/** ------------------------------------------------------FUNCTIONS AND SCOPES----------------------------------------------------------  */
