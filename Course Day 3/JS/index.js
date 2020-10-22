@@ -387,85 +387,157 @@ console.log( '6' / '2' );
 let a = 1;
 let b = 2;
 let c = 3 - (a = b + 1);
-alert( a ); // 3
-alert( c ); //
+console.log( a ); // 3
+console.log( c ); //
 
 let a, b, c;
 a = b = c = 2 + 2;
-alert( a ); // 4
-alert( b ); // 4
-alert( c ); // 4
+console.log( a ); // 4
+console.log( b ); // 4
+console.log( c ); // 4
 
 // NOTE: modify in place operators
 let n = 2;
 n += 5; // now n = 7 (same as n = n + 5)
 n *= 2; // now n = 14 (same as n = n * 2)
-alert( n ); // 14
+console.log( n ); // 14
 
 let n = 2;
 n *= 3 + 5;
-alert( n ); // 16  (right part evaluated first, same as n *= 8)
+console.log( n ); // 16  (right part evaluated first, same as n *= 8)
 
 // NOTE: Increment decrement operators
 let counter = 2;
 counter++;        // works the same as counter = counter + 1, but is shorter
-alert( counter ); // 3
+console.log( counter ); // 3
 
 let counter = 2;
 counter--;        // works the same as counter = counter - 1, but is shorter
-alert( counter ); // 1
+console.log( counter ); // 1
 
 let counter = 1;
 let a = ++counter; // (*)
-alert(a); // 2
+console.log(a); // 2
 
 let counter = 1;
 let a = counter++; // (*) changed ++counter to counter++
-alert(a); // 1
+console.log(a); // 1
 
 // NOTE: Boolean operators
-alert( 2 > 1 );  // true (correct)
-alert( 2 == 1 ); // false (wrong)
-alert( 2 != 1 ); // true (correct)
+console.log( 2 > 1 );  // true (correct)
+console.log( 2 == 1 ); // false (wrong)
+console.log( 2 != 1 ); // true (correct)
 
 let result = 5 > 4; // assign the result of the comparison
-alert( result ); // true
+console.log( result ); // true
 
-alert( 'Z' > 'A' ); // true
-alert( 'Glow' > 'Glee' ); // true
-alert( 'Bee' > 'Be' ); // true
+console.log( 'Z' > 'A' ); // true
+console.log( 'Glow' > 'Glee' ); // true
+console.log( 'Bee' > 'Be' ); // true
 
-alert( '2' > 1 ); // true, string '2' becomes a number 2
-alert( '01' == 1 ); // true, string '01' becomes a number 1
+console.log( '2' > 1 ); // true, string '2' becomes a number 2
+console.log( '01' == 1 ); // true, string '01' becomes a number 1
 
-alert( true == 1 ); // true
-alert( false == 0 ); // true
+console.log( true == 1 ); // true
+console.log( false == 0 ); // true
 
 let a = 0;
-alert( Boolean(a) ); // false
+console.log( Boolean(a) ); // false
 let b = "0";
-alert( Boolean(b) ); // true
-alert(a == b); // true!
+console.log( Boolean(b) ); // true
+console.log(a == b); // true!
 
-alert( 0 == false ); // true
-alert( '' == false ); // true
-alert( null == undefined ); // true
+console.log( 0 == false ); // true
+console.log( '' == false ); // true
+console.log( null == undefined ); // true
 
-alert( 0 === false ); // false, because the types are different
-alert( null === undefined ); // false
+console.log( 0 === false ); // false, because the types are different
+console.log( null === undefined ); // false
 
 // NOTE: Logical operators
-alert( true || true );   // true
-alert( false || true );  // true
-alert( true || false );  // true
-alert( false || false ); // false
+console.log( true || true );   // true
+console.log( false || true );  // true
+console.log( true || false );  // true
+console.log( false || false ); // false
 
-alert( true && true );   // true
-alert( false && true );  // false
-alert( true && false );  // false
-alert( false && false ); // false
+console.log( true && true );   // true
+console.log( false && true );  // false
+console.log( true && false );  // false
+console.log( false && false ); // false
 
-alert( !true ); // false
-alert( !0 ); // true
+console.log( !true ); // false
+console.log( !0 ); // true
 
-/** ------------------------------------------------------FUNCTIONS AND SCOPES----------------------------------------------------------  */
+/** ------------------------------------------------------FUNCTIONS AND SCOPES---------------------------------------------------------- */
+/**
+ * Functions are the main “building blocks” of the program. They allow the code to be called many times without repetition.
+ * We’ve already seen examples of built-in functions, like alert(message), prompt(message, default) and confirm(question). 
+ * But we can create functions of our own as well.
+ */
+
+function showMessage() {
+  console.log( 'Hello everyone!' );
+}
+showMessage();
+
+// Local variables
+function showMessage() {
+  let message = "Hello, I'm JavaScript!"; // local variable
+  console.log( message );
+}
+showMessage(); // Hello, I'm JavaScript!
+console.log( message ); // <-- Error! The variable is local to the function
+
+// Outer variables
+let userName = 'John';
+function showMessage() {
+  let message = 'Hello, ' + userName;
+  console.log(message);
+}
+showMessage(); // Hello, John
+
+// *** The function has full access to the outer variable. It can modify it as well.
+let userName = 'John';
+function showMessage() {
+  userName = "Bob"; // (1) changed the outer variable
+  let message = 'Hello, ' + userName;
+  alert(message);
+}
+console.log(userName); // John before the function call
+showMessage();
+console.log(userName); // Bob, the value was modified by the function
+
+/**
+ * The outer variable is only used if there’s no local one.
+ * If a same-named variable is declared inside the function then it shadows the outer one.
+ * For instance, in the code below the function uses the local userName. The outer one is ignored:
+ */
+
+let userName = 'John';
+function showMessage() {
+  let userName = "Bob"; // declare a local variable
+  let message = 'Hello, ' + userName; // Bob
+  console.log(message);
+}
+// the function will create and use its own userName
+showMessage();
+console.log( userName ); // John, unchanged, the function did not access the outer variable
+
+// One Use Case
+function checkAge(age) {
+  if (age >= 18) {
+    return true;
+  } else {
+    return confirm('Do you have permission from your parents?');
+  }
+}
+let age = prompt('How old are you?', 18);
+if ( checkAge(age) ) {
+  alert( 'Access granted' );
+} else {
+  alert( 'Access denied' );
+}
+
+// -----------------Arrow function
+
+/** ------------------------------------------------------THIS KEYWORD---------------------------------------------------------- */
