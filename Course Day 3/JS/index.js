@@ -1,4 +1,4 @@
-/** ----------------------------------------------DEFINING VARIABLES------------------------------------------------------------------  */
+/** ANCHOR ----------------------------------------------DEFINING VARIABLES------------------------------------------------------------------  */
 
 var a = 'I am var';
 let b = 'I am let';
@@ -17,7 +17,7 @@ console.log('b:', b);
 console.log('c:', c);
 
 
-/** ------------------------------------------------------DATA TYPES----------------------------------------------------------  */
+/** ANCHOR ------------------------------------------------------DATA TYPES----------------------------------------------------------  */
 
 /**
  * NOTE: Programming languages that allow such things, such as JavaScript, are called “dynamically typed”, 
@@ -137,7 +137,7 @@ console.log(typeof 10n) // "bigint"
 console.log(typeof true) // "boolean"
 
 
-/** ------------------------------------------------------ARRAYS----------------------------------------------------------  */
+/** ANCHOR ------------------------------------------------------ARRAYS----------------------------------------------------------  */
 /*
 NOTE: There are two syntaxes for creating an empty array:
 let arr = new Array();
@@ -202,7 +202,7 @@ delete fruits[0]; // Changes the first element in fruits to undefined
 console.log(fruits);
 
 
-/** ------------------------------------------------------OBJECTS----------------------------------------------------------  */
+/** ANCHOR ------------------------------------------------------OBJECTS----------------------------------------------------------  */
 /**
  * NOTE: objects are used to store keyed collections of various data and more complex entities.
  * An object can be created with figure brackets {…} with an optional list of properties.
@@ -265,7 +265,7 @@ for (let i in user) {
 }
 
 
-/** ------------------------------------------------------LOOPS----------------------------------------------------------  */
+/** ANCHOR ------------------------------------------------------LOOPS----------------------------------------------------------  */
 
 /**
  * --------------------WHILE Loop
@@ -335,7 +335,7 @@ for (let i = 0; i < 10; i++) {
 }
 
 
-/** ------------------------------------------------------CONDITIONALS----------------------------------------------------------  */
+/** ANCHOR ------------------------------------------------------CONDITIONALS----------------------------------------------------------  */
 let year = 2015;
 
 if (year < 2015) {
@@ -349,7 +349,7 @@ if (year < 2015) {
 let accessAllowed = (year > 2015) ? true : false;
 console.log(accessAllowed);
 
-/** ------------------------------------------------------INTERACTION WITH JS----------------------------------------------------------  */
+/** ANCHOR ------------------------------------------------------INTERACTION WITH JS----------------------------------------------------------  */
 
 // NOTE: alert
 alert("Hello");
@@ -372,7 +372,7 @@ let isBoss = confirm("Are you the boss?");
 console.log( isBoss ); // true if OK is pressed
 
 
-/** ------------------------------------------------------OPERATORS----------------------------------------------------------  */
+/** ANCHOR ------------------------------------------------------OPERATORS----------------------------------------------------------  */
 
 // NOTE: exponential operators
 console.log(4**(1/2));
@@ -468,7 +468,7 @@ console.log( false && false ); // false
 console.log( !true ); // false
 console.log( !0 ); // true
 
-/** ------------------------------------------------------FUNCTIONS AND SCOPES---------------------------------------------------------- */
+/** ANCHOR ------------------------------------------------------FUNCTIONS AND SCOPES---------------------------------------------------------- */
 /**
  * Functions are the main “building blocks” of the program. They allow the code to be called many times without repetition.
  * We’ve already seen examples of built-in functions, like alert(message), prompt(message, default) and confirm(question). 
@@ -539,5 +539,50 @@ if ( checkAge(age) ) {
 }
 
 // -----------------Arrow function
+const sum = (a, b) => a + b;
+alert( sum(1, 2) ); // 3
 
-/** ------------------------------------------------------THIS KEYWORD---------------------------------------------------------- */
+
+const sayHi = () => alert("Hello!");
+sayHi();
+
+let age = prompt("What is your age?", 18);
+let welcome = (age < 18) ?
+  () => alert('Hello') :
+  () => alert("Greetings!");
+welcome();
+
+let sum = (a, b) => {  // the curly brace opens a multiline function
+  let result = a + b;
+  return result; // if we use curly braces, then we need an explicit "return"
+};
+alert( sum(1, 2) ); // 3
+
+/** ANCHOR ------------------------------------------------------THIS KEYWORD---------------------------------------------------------- */
+// NOTE “this” in methods
+let user = {
+  name: "John",
+  age: 30,
+  sayHi() {
+    // "this" is the "current object"
+    alert(this.name);
+  }
+};
+user.sayHi(); // John
+
+// NOTE “this” is not bound
+function sayHi() {
+  alert(this);
+}
+sayHi(); // undefined in strict mode; window object in non strict mode
+
+// NOTE Arrow functions have no “this”
+// Arrow functions are special: they don’t have their “own” this. If we reference this from such a function, it’s taken from the outer “normal” function.
+let user = {
+  firstName: "Ilya",
+  sayHi() {
+    let arrow = () => alert(this.firstName);
+    arrow();
+  }
+};
+user.sayHi(); // Ilya
