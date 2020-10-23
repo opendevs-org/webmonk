@@ -570,6 +570,8 @@ let user = {
 };
 user.sayHi(); // John
 
+console.log(this);
+
 // NOTE “this” is not bound
 function sayHi() {
   alert(this);
