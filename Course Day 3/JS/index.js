@@ -538,6 +538,19 @@ if ( checkAge(age) ) {
   alert( 'Access denied' );
 }
 
+// Immediately-invoked Function Expression (IIFE)
+
+(function() {
+  /* function body */
+})()
+
+// or,
+
+(() => {
+  /* function body  */
+})()
+
+
 // -----------------Arrow function
 const sum = (a, b) => a + b;
 alert( sum(1, 2) ); // 3

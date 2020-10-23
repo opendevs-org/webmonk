@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Foundation</title>
+</head>
+<body>
+    <h1 align="center">HEY AWESOME GUY, let's learn some JSs</h1>
+
+    <!-- the Click Event (onclick) -->
+    <!-- The click event occurs when a user clicks on an element on a web page. Often, -->
+    <!-- these are form elements and links. You can handle a click event with an onclick event handler. -->
+    <button type="button" onclick="alert('You have clicked a button!');">Click Me</button>
+
+    <!-- the Contextmenu Event (oncontextmenu) -->
+    <!-- The contextmenu event occurs when a user clicks the right mouse button on an element to open a context menu. -->
+    <button type="button" oncontextmenu="alert('You have right-clicked a button!');">Right Click on Me</button>
+
+    <!-- the Mouseover Event (onmouseover) -->
+    <!-- The mouseover event occurs when a user moves the mouse pointer over an element. -->
+    <button type="button" onmouseover="alert('You have placed mouse pointer over a button!');">Place Mouse Over Me</button>
+
+    <!-- the Mouseout Event (onmouseout) -->
+    <!-- The mouseout event occurs when a user moves the mouse pointer outside of an element. -->
+    <button type="button" onmouseout="alert('You have moved out of the button!');">Place Mouse Inside Me and Move Out</button>
+
+    <!-- the Keydown Event (onkeydown) -->
+    <!-- The keydown event occurs when the user presses down a key on the keyboard. -->
+    <!-- <input type="text" onkeydown="alert('You have pressed a key inside text input!')"> -->
+    <!-- <input type="text" onkeydown="myFunction(event)"> -->
+
+    <!-- The Keyup Event (onkeyup) :The keyup event occurs when the user releases a key on the keyboard. -->
+    <input type="text" onkeyup="alert('You have released a key inside text input!')">
+
+    <!-- The Keypress Event (onkeypress) -->
+    <!-- The keypress event occurs when a user presses down a key on the keyboard that has a character value associated with it. -->
+    <!-- For example, keys like Ctrl, Shift, Alt, Esc, Arrow keys, etc. will not generate a keypress event, -->
+    <!-- but will generate a keydown and keyup event. -->
+    <input type="text" onkeypress="alert('You have pressed a key inside text input!')">
+
+    <!-- The Focus Event (onfocus): The focus event occurs when the user gives focus to an element on a web page. -->
+    <script>
+        function highlightInput(elm){
+            elm.style.background = "yellow";
+        }    
+    </script>
+    <input type="text" onfocus="highlightInput(this)">
+
+    <!-- The Blur Event (onblur): The blur event occurs when the user takes the focus away from a form element or a window. -->
+    <input type="text" onblur="alert('Text input loses focus!')">
+
+    <!-- The Change Event (onchange): The change event occurs when a user changes the value of a form element. -->
+    <select onchange="alert('You have changed the selection!');">
+        <option>Select</option>
+        <option>Male</option>
+        <option>Female</option>
+    </select>
+
+    <!-- The Submit Event (onsubmit): The submit event only occurs when the user submits a form on a web page. -->
+    <form action="action.php" method="post" onsubmit="alert('Form data will be submitted to the server!');">
+        <label>First Name:</label>
+        <input type="text" name="first-name" required>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- The Load Event (onload): The load event occurs when a web page has finished loading in the web browser. -->
+    <!-- <body onload="window.alert('Page is loaded successfully!');">  -->
+    <!--     <h1>This is a heading</h1>  -->
+    <!--     <p>This is paragraph of text.</p>  -->
+    <!-- </body> -->
+
+    <!-- The Unload Event (onunload): The unload event occurs when a user leaves the current web page. -->
+    <!-- <body onunload="alert('Are you sure you want to leave this page?');">  -->
+    <!--     <h1>This is a heading</h1>  -->
+    <!--     <p>This is paragraph of text.</p>  -->
+    <!-- </body> -->
+
+    <!-- The Resize Event (onresize)-->
+    <!-- The resize event occurs when a user resizes the browser window. -->
+    <!-- The resize event also occurs in situations when the browser window is minimized or maximized. -->
+
+    <p id="result"></p>
+    <script>
+        function displayWindowSize() {
+            var w = window.outerWidth;
+            var h = window.outerHeight;
+            var txt = "Window size: width=" + w + ", height=" + h;
+            document.getElementById("result").innerHTML = txt;
+        }
+        window.onresize = displayWindowSize;
+    </script>
+
+
+    <script src="./index.js"></script>
+</body>
+</html>
