@@ -70,6 +70,7 @@ const copyItems = []
 items.forEach(item => copyItems.push(item));
 console.log(copyItems);
 
+
 // SECTION: spread operator
 const arr1 = [0, 1, 2];
 const arr2 = [3, 4, 5];

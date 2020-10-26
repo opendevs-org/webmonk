@@ -10,9 +10,9 @@ const loadScript = (src, callback) => {
 
 loadScript('https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js', (error, script) => {
     if (error) {
-        alert(`Error: ${error.message}`);
+        console.log(`Error: ${error.message}`);
     } else {
-        alert(`Cool, the script ${script.src} is loaded`);
-        alert( _ ); // function declared in the loaded script
+        console.log(`Cool, the script ${script.src} is loaded`);
+        console.log( _ ); // function declared in the loaded script
     }
 });

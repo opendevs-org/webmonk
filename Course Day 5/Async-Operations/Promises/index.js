@@ -12,12 +12,12 @@ const promise = loadScript("https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.1
 
 promise
     .then(script => {
-        alert(`Cool, the script ${script.src} is loaded`);
-        alert( _ ); // function declared in the loaded script
+        console.log(`Cool, the script ${script.src} is loaded`);
+        console.log( _ ); // function declared in the loaded script
     })
-    .catch(error => alert(`Error: ${error.message}`));
+    .catch(error => console.log(`Error: ${error.message}`));
 
-promise.then(script => alert('Another handler...'));
+promise.then(script => console.log('Another handler...'));
 
 /*
 SECTION: Differences
