@@ -10,7 +10,8 @@
 #### [Day 3 - Course Day 1: Introduction](https://github.com/open-devs/webmonk/tree/master/Course%20Day%201)
 #### [Day 4 - Course Day 2: HTML, CSS, Git & GitHub](https://github.com/open-devs/webmonk/tree/master/Course%20Day%202)
 #### [Day 5 - Course Day 3: JS Basics](https://github.com/open-devs/webmonk/tree/master/Course%20Day%203)
-#### [Day 6 - Course Day 3: JS Intermediate](https://github.com/open-devs/webmonk/tree/master/Course%20Day%204)
+#### [Day 6 - Course Day 4: JS Intermediate](https://github.com/open-devs/webmonk/tree/master/Course%20Day%204)
+#### [Day 7 - Course Day 5: JS Advanced](https://github.com/open-devs/webmonk/tree/master/Course%20Day%205)
 
 ## Usage
 
