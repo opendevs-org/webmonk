@@ -1,0 +1,15 @@
+{
+  "name": "starter-project",
+  "version": "0.0.1",
+  "description": "This is a starter project to learn some node things",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "starter",
+    "demo"
+  ],
+  "author": "open devs (open.devs.github@gmail.com)",
+  "license": "MIT"
+}
