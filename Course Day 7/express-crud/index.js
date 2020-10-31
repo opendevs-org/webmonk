@@ -5,14 +5,18 @@ const PORT = 3000;
 
 // Middleware logger
 const log = (req, res, next) => {
-  console.log(req);
-  // console.log('Method: %s, Route: %s', req.method, req.url);
+  // console.log(req);
+  console.log("Method: %s, Route: %s", req.method, req.url);
   next();
 };
 
 // Middleware
 app.use(express.json());
+
+// custom middleware : log
 app.use(log);
+
+// Global Intime memory array
 let accounts = [
   {
     id: 1,
@@ -31,15 +35,18 @@ let accounts = [
   },
 ];
 
+// Basic route
 // app.get('/hello', (request,response) => {
 //     response.send('hello world');
 // })
 
+// To get all records
 /** GET ALL : http://localhost:3000/accounts */
 app.get("/accounts", (request, response) => {
-  response.json(accounts);
+  response.status(200).json(accounts);
 });
 
+// To get single record
 /** GET BY ID : http://localhost:3000/accounts/3 */
 app.get("/accounts/:id", (request, response) => {
   const accountId = Number(request.params.id);
@@ -48,10 +55,11 @@ app.get("/accounts/:id", (request, response) => {
   if (!getAccount) {
     response.status(404).send("Account not found.");
   } else {
-    response.json(getAccount);
+    response.status(200).json(getAccount);
   }
 });
 
+// To insert a new record
 /** INSERT(POST):  http://localhost:3000/accounts 
  * {
     "username": "davesmith",
@@ -59,16 +67,15 @@ app.get("/accounts/:id", (request, response) => {
   } */
 app.post("/accounts", (request, response) => {
   const id = accounts.length + 1;
-  console.log(request.body);
   request.body.id = id;
   const incomingAccount = request.body;
-  console.log(request.body);
 
   accounts.push(incomingAccount);
 
-  response.json(accounts);
+  response.status(201).json(accounts);
 });
 
+// Updating existing data
 /** UPDATE */
 app.put("/accounts/:id", (request, response) => {
   const accountId = Number(request.params.id);
@@ -83,24 +90,25 @@ app.put("/accounts/:id", (request, response) => {
 
     accounts[index] = updatedAccount;
 
-    response.send(updatedAccount);
+    response.status(200).send(updatedAccount);
   }
 });
 
+// Deleting a record
 /** DELETE */
 app.delete("/accounts/:id", (request, response) => {
   const accountId = Number(request.params.id);
   const newAccounts = accounts.filter((account) => account.id != accountId);
-  console.log(newAccounts);
 
   if (!newAccounts) {
     response.status(404).send("Account not found.");
   } else {
     accounts = newAccounts;
-    response.send(accounts);
+    response.status(200).send(accounts);
   }
 });
 
+// Starting express server on port 3000
 app.listen(PORT, () =>
   console.log(`Express server currently running on port ${PORT}`)
 );
