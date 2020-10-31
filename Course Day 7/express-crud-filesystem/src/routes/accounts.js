@@ -20,7 +20,7 @@ router.get("/accounts/:id", async (req, res) => {
     try {
         const accountId = Number(req.params.id); //NOTE: req.params contains object with all the parameters send. this id should be same name as specified in the route above
         const accounts = await readFile(dbFilePath); //NOTE: to read data from file at dbFilePath variable's path
-        const getAccount = accounts.find((account) => account.id === accountId); //NOTE: to find the object with same id as the one received in parameter
+        const getAccount = accounts.find(account => account.id === accountId); //NOTE: to find the object with same id as the one received in parameter
 
         if (!getAccount) {
             res.status(404).send(`Account with id: ${accountId} not found!`);
@@ -77,7 +77,7 @@ router.put("/accounts/:id", async (req, res) => {
 router.delete("/accounts/:id", async (req, res) => {
     const accountId = Number(req.params.id); //NOTE: req.params contains object with all the parameters send. this id should be same name as specified in the route above
     const accounts = await readFile(dbFilePath); //NOTE: to read data from file at dbFilePath variable's path
-    const newAccounts = accounts.filter((account) => account.id !== accountId); //NOTE: filter based on condition to keep all the objects with id not equal to received id
+    const newAccounts = accounts.filter(account => account.id !== accountId); //NOTE: filter based on condition to keep all the objects with id not equal to received id
 
     if (!newAccounts) {
         res.status(404).send(`Account with id: ${accountId} not found!`);
