@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to webmonk 👋</h1>
 
-> This repo contains the code, ppts &amp; resources used in Webmonk course for full stack MERN developer in collaboration with Tech Bairn
+> This repo contains the code, ppts &amp; resources used in Webmonk course for full stack MERN developer
 
 ### 🏠 [Homepage](https://github.com/open-devs/webmonk)
 
@@ -41,7 +41,7 @@ git clone https://github.com/open-devs/webmonk
 ## In collaboration with
 
 * [Tech Bairn](https://techbairn.com/)
-* [LinkedIn](https://www.linkedin.com/company/techbairn/)
+* [Tech Bairn - LinkedIn](https://www.linkedin.com/company/techbairn/)
 
 ## Show your support
 
