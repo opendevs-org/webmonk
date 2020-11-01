@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Middleware
 const validateUser = (req, res, next) =>
-    jwt.verify(req.headers['x-access-token'], req.app.get('secretKey'), (err, decoded) => {
+    jwt.verify(req.headers.authorization.split(' ')[1], req.app.get('secretKey'), (err, decoded) => {
         if (err) {
             res.json({ status: "error", message: err.message, data: null });
         } else {

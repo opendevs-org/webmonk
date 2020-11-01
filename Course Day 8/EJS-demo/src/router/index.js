@@ -14,7 +14,8 @@ router.get('/', (req, res) => {
     res.render('pages/index', {
         tagline,
         people
-    });
+    }); //NOTE: sending the string and array to express render method so that it fills the portion of the ejs file and renders the complete HTML and sends to the browser in complete form
+    //NOTE: as we are preparing the HTML file on backend using Express+EJS this is known as SSR
 });
 
 
