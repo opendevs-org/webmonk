@@ -8,7 +8,7 @@
 
 #### [Day 2 - CSS](https://github.com/open-devs/webmonk/tree/master/Day%202)
 
-#### [Day 3 - Course Day 1: Introduction](https://github.com/open-devs/webmonk/tree/master/Course%20Day%201)
+#### [Day 3 - Course Day 1: Introduction to Course](https://github.com/open-devs/webmonk/tree/master/Course%20Day%201)
 
 #### [Day 4 - Course Day 2: HTML, CSS, Git & GitHub](https://github.com/open-devs/webmonk/tree/master/Course%20Day%202)
 
@@ -21,6 +21,8 @@
 #### [Day 8 - Course Day 6: Nodejs Basics](https://github.com/open-devs/webmonk/tree/master/Course%20Day%206)
 
 #### [Day 9 - Course Day 7: Intro to Express.js](https://github.com/open-devs/webmonk/tree/master/Course%20Day%207)
+
+#### [Day 10 - Course Day 8: Intro to SSR, EJS & JWT](https://github.com/open-devs/webmonk/tree/master/Course%20Day%208)
 
 ## Usage
 
