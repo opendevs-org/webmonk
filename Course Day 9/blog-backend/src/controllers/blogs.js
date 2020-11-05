@@ -1,4 +1,4 @@
-const { readFile, writeFile } = require('../daos/index'); //NOTE: Importing the readFile & writeFile as separate functions
+const { readFile, writeFile } = require('../daos/index');
 
 const dbFilePath = `${__dirname}../../../data/blog-db.json`;
 
@@ -28,29 +28,29 @@ module.exports = {
     },
     create: async (req, res, next) => {
         try {
-            const incomingAccount = req.body;
-            const accounts = await readFile(dbFilePath);
-            incomingAccount.id = accounts.length + 1;
+            const incomingBlog = req.body;
+            const blogList = await readFile(dbFilePath);
+            incomingBlog.id = blogList.length + 1;
     
-            accounts.push(incomingAccount);
-            await writeFile(dbFilePath, accounts);
+            blogList.push(incomingAccount);
+            await writeFile(dbFilePath, blogList);
         
-            res.send(accounts);
+            res.send(incomingBlog);
         } catch (error) {
             next(error);
         }
     },
     updateById: async (req, res, next) => {
         try {
-            const accountId = Number(req.params.id);
-            const incomingAccount = req.body;
-            const accounts = await readFile(dbFilePath);
+            const blogId = Number(req.params.id);
+            const incomingBlog = req.body;
+            const blogList = await readFile(dbFilePath);
 
             let flag = false;
             let resultIndex = -1;
-            for (let index in accounts) {
-                if (accounts[index].id === accountId) {
-                    accounts[index] = { ...accounts[index], ...incomingAccount };
+            for (let index in blogList) {
+                if (blogList[index].id === blogId) {
+                    blogList[index] = { ...blogList[index], ...incomingBlog };
                     resultIndex = index;
                     flag = true;
                     break;
@@ -58,10 +58,10 @@ module.exports = {
             }
         
             if (!flag) {
-                res.status(404).send(`Account with id: ${accountId} not found!`);
+                res.status(404).send(`Blog with id: ${blogId} not found!`);
             } else {
-                await writeFile(dbFilePath, accounts);
-                res.send(accounts[resultIndex]);
+                await writeFile(dbFilePath, blogList);
+                res.send(blogList[resultIndex]);
             }
         } catch (error) {
             next(error);
@@ -69,15 +69,15 @@ module.exports = {
     },
     deleteById: async (req, res, next) => {
         try {
-            const accountId = Number(req.params.id);
-            const accounts = await readFile(dbFilePath);
-            const newAccounts = accounts.filter(account => account.id !== accountId);
+            const blogId = Number(req.params.id);
+            const blogList = await readFile(dbFilePath);
+            const newBlog = blogList.filter(blog => blog.id !== blogId);
         
-            if (!newAccounts) {
-                res.status(404).send(`Account with id: ${accountId} not found!`);
+            if (!newBlog) {
+                res.status(404).send(`Blog with id: ${blogId} not found!`);
             } else {
-                await writeFile(dbFilePath, newAccounts, "utf-8");
-                res.send(newAccounts);
+                await writeFile(dbFilePath, newBlog, "utf-8");
+                res.send('OK');
             }
         } catch (error) {
             next(error);
