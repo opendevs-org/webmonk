@@ -32,7 +32,7 @@ module.exports = {
             const blogList = await readFile(dbFilePath);
             incomingBlog.id = blogList.length + 1;
     
-            blogList.push(incomingAccount);
+            blogList.push(incomingBlog);
             await writeFile(dbFilePath, blogList);
         
             res.send(incomingBlog);
