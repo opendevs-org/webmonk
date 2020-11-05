@@ -42,12 +42,12 @@ module.exports = {
             const isMatch = (user.password === password)
             if (!isMatch)
                 return res.status(400).json({ msg: "Invalid credentials." });
-            const token = sign({ email: user.email }, ']x"_w%n.^kGC(/]M5A6\:+xyV{v^jy?vq?%?sHQ{$(>uQ7,E5B'); // process.env.JWT_SECRET
+            const token = sign({ email: user.email }, process.env.JWT_SECRET);
 
             res.json({
                 token,
                 user: {
-                    email: user._email,
+                    email: user.email,
                     displayName: user.displayName,
                 },
             });

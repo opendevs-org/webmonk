@@ -4,13 +4,18 @@ const { getById } = require('../controllers/blogs.js');
 module.exports = {
     auth: (req, res, next) => {
         try {
-            const token = req.headers.authorization.split(" ")[1];
+            let token = req.headers.authorization;
+            if (!token)
+                return res.status(401).json({ msg: "NO authentication token, access denied" });
+
+            token = token.split(' ')[1];
+
             if (!token)
                 return res
                     .status(401)
                     .json({ msg: "No authentication token, access denied" });
 
-            const verified = verify(token, ']x"_w%n.^kGC(/]M5A6\:+xyV{v^jy?vq?%?sHQ{$(>uQ7,E5B'); // process.env.JWT_SECRET
+            const verified = verify(token, process.env.JWT_SECRET); // process.env.JWT_SECRET
             if (!verified)
                 return res.status(401).json({
                     msg: "Token verification failed, authorization denied",
