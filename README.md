@@ -28,6 +28,8 @@
 
 ### [Day 10 - Course Day 8: Intro to SSR, EJS & JWT](https://github.com/open-devs/webmonk/tree/master/Course%20Day%208)
 
+### [Day 11 - Course Day 9: Blog Backend](https://github.com/open-devs/webmonk/tree/master/Course%20Day%209)
+
 ## Usage
 
 ```sh
