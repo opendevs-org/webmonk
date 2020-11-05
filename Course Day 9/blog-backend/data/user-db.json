@@ -1,0 +1,14 @@
+[
+  {
+    "email": "alok@gmail.com",
+    "password": "test@test",
+    "passwordCheck": "test@test",
+    "displayName": "Alok Raj"
+  },
+  {
+    "email": "ankit@gmail.com",
+    "password": "test@test",
+    "passwordCheck": "test@test",
+    "displayName": "Ankit Raj"
+  }
+]
