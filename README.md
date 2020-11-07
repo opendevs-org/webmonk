@@ -30,6 +30,8 @@
 
 ### [Day 11 - Course Day 9: Blog Backend](https://github.com/open-devs/webmonk/tree/master/Course%20Day%209)
 
+### [Day 12 - Course Day 10: Database & Mongo Basics](https://github.com/open-devs/webmonk/tree/master/Course%20Day%2010)
+
 ## Usage
 
 ```sh
