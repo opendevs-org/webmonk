@@ -29,8 +29,8 @@ module.exports = {
 
     idCheck: async (req, res, next) => {
         try {
-            const blog = await getById(req.params._id);
-            if (blog.user.email === req.user.email) {
+            const blog = await getById(req.params._id); //NOTE getting id from params of blog and finding that blog
+            if (blog.user.email === req.user.email) { // NOTE if email stored in user object of a blog is same as email we received from JWT token stored in req.user object, allow edit/delete
                 next();
             } else {
                 return res.status(401).json({
