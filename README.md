@@ -34,6 +34,16 @@
 
 ### [Day 13 - Course Day 11: Mongoose & Blog Backend](https://github.com/open-devs/webmonk/tree/master/Course%20Day%2011)
 
+## Assignments
+
+1. Survey Form
+
+2. Portfolio
+
+3. Node Express JWT File System CRUD
+
+4. Node Express JWT Mongoose CRUD
+
 ## Usage
 
 ```sh
