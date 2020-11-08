@@ -1,5 +1,6 @@
-const { verify } = require("jsonwebtoken");
-const { getById } = require('../controllers/blogs.js');
+const { verify } = require('jsonwebtoken');
+const { findOne } = require('../dao/index');
+const Blog = require('../models/blogs.model');
 
 module.exports = {
     auth: (req, res, next) => {
@@ -29,7 +30,7 @@ module.exports = {
 
     idCheck: async (req, res, next) => {
         try {
-            const blog = await getById(req.params._id);
+            const blog = await findOne(Blog, {_id: req.params._id});
             if (blog.user.email === req.user.email) {
                 next();
             } else {

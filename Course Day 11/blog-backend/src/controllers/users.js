@@ -1,12 +1,13 @@
 const { sign } = require("jsonwebtoken");
 const User = require("../models/users.model");
+const Dao = require('../dao/index');
 const { genSalt, compare, hash } = require("bcryptjs");
 
 module.exports = {
     get: async (req, res, next) => {
         try {
             const email = req.user.email;
-            const user = await User.find({ email });
+            const user = await Dao.find(User, { email });
             res.json({
                 email: user.email,
                 displayName: user.displayName,
@@ -27,7 +28,7 @@ module.exports = {
                     .status(400)
                     .json({ msg: "Not all fields have been entered." });
 
-            const user = await User.findOne({ email });
+            const user = await Dao.findOne(User, { email });
             if (!user)
                 return res.status(400).json({
                     msg: "No account with this email has been registered.",
@@ -67,7 +68,7 @@ module.exports = {
                 return res.status(400).json({
                     msg: "Enter the same password twice for verification.",
                 });
-            const existingUser = await User.findOne({ email });
+            const existingUser = await Dao.findOne(User, { email });
             if (existingUser)
                 return res.status(400).json({
                     msg: "An account with this email already exists.",

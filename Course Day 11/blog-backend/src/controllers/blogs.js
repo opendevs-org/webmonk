@@ -1,9 +1,10 @@
-const Blog = require("../models/blogs.model");
+const Dao = require('../dao/index');
+const Blog = require('../models/blogs.model');
 
 module.exports = {
     getAll: async (req, res, next) => {
         try {
-            const data = await Blog.find({});
+            const data = await Dao.find(Blog, {});
             res.status(200).send(data);
         } catch (error) {
             next(error);
@@ -11,7 +12,7 @@ module.exports = {
     },
     getByUser: async (req, res, next) => {
         try {
-            const data = await Blog.find({ email: req.user.email });
+            const data = await Dao.find(Blog, { email: req.user.email });
             res.status(200).send(data);
         } catch (error) {
             next(error);
@@ -20,7 +21,7 @@ module.exports = {
     getById: async (req, res, next) => {
         try {
             const _id = req.params._id;
-            const singleBlog = await Blog.find({ _id });
+            const singleBlog = await Dao.find(Blog, { _id });
 
             if (!singleBlog) {
                 res.status(404).send(`Blog with id: ${id} not found!`);
@@ -40,13 +41,12 @@ module.exports = {
                     .status(400)
                     .json({ msg: "Not all fields have been entered" });
 
-            const newBlog = new Blog({
+            const newBlog = await Dao.save(Blog, {
                 title,
                 description,
                 user
             });
-            const savedBlog = await newBlog.save();
-            res.status(201).json(savedBlog);
+            res.status(201).json(newBlog);
         } catch (error) {
             next(error);
         }
@@ -54,7 +54,7 @@ module.exports = {
     updateById: async (req, res, next) => {
         try {
             const _id = req.params._id;
-            const updateRes = await Blog.findOneAndUpdate({ _id }, req.body);
+            const updateRes = await Dao.findOneAndUpdate(Blog, { _id }, req.body);
             res.status(200).json(updateRes);
         } catch (error) {
             next(error);
@@ -63,7 +63,7 @@ module.exports = {
     deleteById: async (req, res, next) => {
         try {
             const _id = req.params._id;
-            const deletedItem = await Blog.findByIdAndDelete(_id);
+            const deletedItem = await Dao.findByIdAndDelete(Blog, _id);
             res.status(200).json(deletedItem);
         } catch (error) {
             next(error);
