@@ -7,8 +7,8 @@ module.exports = {
     get: async (req, res, next) => {
         try {
             const email = req.user.email;
-            const user = await Dao.find(User, { email });
-            res.json({
+            const user = await Dao.findOne(User, { email });
+            res.status(200).send({
                 email: user.email,
                 displayName: user.displayName,
                 bio: user.bio,

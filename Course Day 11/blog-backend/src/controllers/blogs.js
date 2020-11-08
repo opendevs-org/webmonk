@@ -12,7 +12,7 @@ module.exports = {
     },
     getByUser: async (req, res, next) => {
         try {
-            const data = await Dao.find(Blog, { email: req.user.email });
+            const data = await Dao.find(Blog, { 'user.email': req.user.email });
             res.status(200).send(data);
         } catch (error) {
             next(error);
@@ -40,6 +40,9 @@ module.exports = {
                 return res
                     .status(400)
                     .json({ msg: 'Not all fields have been entered' });
+            const user = {
+                email: req.user.email
+            }
 
             const newBlog = await Dao.save(Blog, {
                 title,

@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 3000;
 // set up express
 app.use(express.json());
 app.use(cors());
+app.use(morgan('dev'));
 app.use('/api', routes);
 app.use((req, res, next) => {
     let err = new Error('Not Found');
