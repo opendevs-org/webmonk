@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-const { getAll, getByUser, getById, create, updateById, deleteById } = require('../controllers/blogs');
+const { getAll, getById, create, getByUser, updateById, deleteById } = require('../controllers/blogs');
 const { idCheck } = require('../middleware/index');
 
 const router = Router();

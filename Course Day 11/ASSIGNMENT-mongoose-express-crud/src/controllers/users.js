@@ -1,17 +1,18 @@
 const { sign } = require("jsonwebtoken");
-const User = require("../models/users.model");
-const Dao = require('../dao/index');
 const { genSalt, compare, hash } = require("bcryptjs");
+
+const User = require('../models/users.model');
+const { find } = require('../daos/index');
 
 module.exports = {
     get: async (req, res, next) => {
         try {
-            const email = req.user.email;
-            const user = await Dao.findOne(User, { email });
+            const { email } = req.user;
+            const user = await find(User, { email });
             res.status(200).send({
-                email: user.email,
-                displayName: user.displayName,
-                bio: user.bio,
+                email: user[0].email,
+                displayName: user[0].displayName,
+                bio: user[0].bio,
             });
         } catch (error) {
             next(error);
@@ -26,16 +27,18 @@ module.exports = {
             if (!email || !password)
                 return res
                     .status(400)
-                    .json({ msg: 'Not all fields have been entered.' });
+                    .json({ msg: "Not all fields have been entered." });
 
-            const user = await Dao.findOne(User, { email });
+            const user = await User.findOne({ email }); //NOTE: refactor
             if (!user)
                 return res.status(400).json({
-                    msg: 'No account with this email has been registered.',
+                    msg: "No account with this email has been registered.",
                 });
+
             const isMatch = await compare(password, user.password);
             if (!isMatch)
-                return res.status(400).json({ msg: 'Invalid credentials.' });
+                return res.status(400).json({ msg: "Invalid credentials." });
+
             const token = sign({ email: user.email }, process.env.JWT_SECRET);
 
             res.json({
@@ -57,21 +60,22 @@ module.exports = {
             if (!email || !password || !passwordCheck)
                 return res
                     .status(400)
-                    .json({ msg: 'Not all fields have been entered.' });
+                    .json({ msg: "Not all fields have been entered." });
 
             if (password.length < 5)
                 return res.status(400).json({
-                    msg: 'The password needs to be at least 5 characters long.',
+                    msg: "The password needs to be at least 5 characters long.",
                 });
 
             if (password !== passwordCheck)
                 return res.status(400).json({
-                    msg: 'Enter the same password twice for verification.',
+                    msg: "Enter the same password twice for verification.",
                 });
-            const existingUser = await Dao.findOne(User, { email });
+
+            const existingUser = await User.findOne({ email }); //NOTE: refactor
             if (existingUser)
                 return res.status(400).json({
-                    msg: 'An account with this email already exists.',
+                    msg: "An account with this email already exists.",
                 });
 
             if (!displayName) displayName = email;
@@ -81,15 +85,18 @@ module.exports = {
             const salt = await genSalt();
             const passwordHash = await hash(password, salt);
 
-            const newUser = new User({
+            console.log(passwordHash);
+
+            const newUser = new User({ //NOTE: refactor
                 email,
                 password: passwordHash,
                 displayName,
-                bio,
+                bio
             });
-            const savedUser = await newUser.save();
 
-            res.status(201).json(savedUser);
+            const savedUser = await newUser.save();
+            
+            res.json(savedUser);
         } catch (error) {
             next(error);
         }

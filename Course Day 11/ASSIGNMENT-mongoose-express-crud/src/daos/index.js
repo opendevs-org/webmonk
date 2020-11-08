@@ -2,7 +2,7 @@ module.exports = {
 
     find: async (modal, query) => await modal.find(query),
 
-    findOne: async (modal, query) => await modal.findOne(query),
+    //NOTE: implement findOne
 
     save: async (modal, data) => {
         const newData = new modal(data);
@@ -11,6 +11,6 @@ module.exports = {
 
     findOneAndUpdate: async (modal, filter, data) => await modal.findOneAndUpdate(filter, data),
 
-    findByIdAndDelete: async (modal, _id) => await modal.findByIdAndDelete(_id)
+    //NOTE: implement findByIdAndDelete
 
 };

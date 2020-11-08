@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const blogSchema = new mongoose.Schema(
     {
-        title: { type: String, required: true },
-        description: { type: String, required: true },
+        title: { type: String, required: true, unique: true },
+        body: { type: String, required: true },
         user: { type: Object, required: true }
     },
     {
@@ -11,4 +11,4 @@ const blogSchema = new mongoose.Schema(
     }
 );
 
-module.exports = Blog = mongoose.model('blog', blogSchema);
+module.exports = mongoose.model('blog', blogSchema);

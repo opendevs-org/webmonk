@@ -1,10 +1,24 @@
-const Dao = require('../dao/index');
 const Blog = require('../models/blogs.model');
+const { find } = require('../daos/index');
 
 module.exports = {
+    getById: async (req, res, next) => {
+        try {
+            const _id = req.params._id;
+            const singleBlog = await find(Blog, { _id });
+
+            if (!singleBlog) {
+                res.status(404).send(`Blog with id: ${id} not found!`);
+            } else {
+                res.send(singleBlog);
+            }
+        } catch (error) {
+            next(error);
+        }
+    },
     getAll: async (req, res, next) => {
         try {
-            const data = await Dao.find(Blog, {});
+            const data = await find(Blog, {});
             res.status(200).send(data);
         } catch (error) {
             next(error);
@@ -12,43 +26,33 @@ module.exports = {
     },
     getByUser: async (req, res, next) => {
         try {
-            const data = await Dao.find(Blog, { 'user.email': req.user.email });
+            const data = await find(Blog, { 'user.email': req.user.email });
             res.status(200).send(data);
-        } catch (error) {
-            next(error);
-        }
-    },
-    getById: async (req, res, next) => {
-        try {
-            const _id = req.params._id;
-            const singleBlog = await Dao.find(Blog, { _id });
-
-            if (!singleBlog) {
-                res.status(404).send(`Blog with id: ${id} not found!`);
-            } else {
-                res.status(200).send(singleBlog);
-            }
         } catch (error) {
             next(error);
         }
     },
     create: async (req, res, next) => {
         try {
-            const { title, description } = req.body;
+            const { title, body } = req.body;
 
-            if (!title || !description)
+            if (!title || !body)
                 return res
                     .status(400)
                     .json({ msg: 'Not all fields have been entered' });
+
             const user = {
                 email: req.user.email
             }
 
-            const newBlog = await Dao.save(Blog, {
+            let newBlog = new Blog({ //NOTE: refactor
                 title,
-                description,
+                body,
                 user
             });
+
+            newBlog = await newBlog.save();
+
             res.status(201).json(newBlog);
         } catch (error) {
             next(error);
@@ -57,7 +61,7 @@ module.exports = {
     updateById: async (req, res, next) => {
         try {
             const _id = req.params._id;
-            const updateRes = await Dao.findOneAndUpdate(Blog, { _id }, req.body);
+            const updateRes = await Blog.findOneAndUpdate({ _id }, req.body); //NOTE: refactor
             res.status(200).json(updateRes);
         } catch (error) {
             next(error);
@@ -66,10 +70,10 @@ module.exports = {
     deleteById: async (req, res, next) => {
         try {
             const _id = req.params._id;
-            const deletedItem = await Dao.findByIdAndDelete(Blog, _id);
+            const deletedItem = await Blog.findByIdAndDelete(_id); //NOTE: refactor
             res.status(200).json(deletedItem);
         } catch (error) {
             next(error);
         }
-    },
-};
+    }
+}
