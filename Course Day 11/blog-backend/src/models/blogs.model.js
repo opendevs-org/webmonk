@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const blogSchema = new mongoose.Schema(
     {
@@ -7,8 +7,8 @@ const blogSchema = new mongoose.Schema(
         user: { type: Object, required: true }
     },
     {
-        timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" },
+        timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' },
     }
 );
 
-module.exports = Blog = mongoose.model("blog", blogSchema);
+module.exports = Blog = mongoose.model('blog', blogSchema);

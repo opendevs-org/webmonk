@@ -1,4 +1,4 @@
-const Blog = require("../models/blogs.model");
+const Blog = require('../models/blogs.model');
 
 module.exports = {
     getAll: async (req, res, next) => {
@@ -38,7 +38,7 @@ module.exports = {
             if (!title || !description)
                 return res
                     .status(400)
-                    .json({ msg: "Not all fields have been entered" });
+                    .json({ msg: 'Not all fields have been entered' });
 
             const newBlog = new Blog({
                 title,

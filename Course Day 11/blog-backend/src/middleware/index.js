@@ -1,4 +1,4 @@
-const { verify } = require("jsonwebtoken");
+const { verify } = require('jsonwebtoken');
 const { getById } = require('../controllers/blogs.js');
 
 module.exports = {
@@ -6,19 +6,19 @@ module.exports = {
         try {
             let token = req.headers.authorization;
             if (!token)
-                return res.status(401).json({ msg: "NO authentication token, access denied" });
+                return res.status(401).json({ msg: 'NO authentication token, access denied' });
 
             token = token.split(' ')[1];
 
             if (!token)
                 return res
                     .status(401)
-                    .json({ msg: "No authentication token, access denied" });
+                    .json({ msg: 'No authentication token, access denied' });
 
             const verified = verify(token, process.env.JWT_SECRET);
             if (!verified)
                 return res.status(401).json({
-                    msg: "Token verification failed, authorization denied",
+                    msg: 'Token verification failed, authorization denied',
                 });
             req.user = verified;
             next();
@@ -34,7 +34,7 @@ module.exports = {
                 next();
             } else {
                 return res.status(401).json({
-                    msg: "You are not authorized to tamper this blog",
+                    msg: 'You are not authorized to tamper this blog',
                 });
             }
         } catch (error) {
