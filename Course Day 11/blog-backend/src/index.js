@@ -24,7 +24,6 @@ app.use((err, req, res, next) => {
 });
 
 // set up mongoose
-
 mongoose.connect(
     process.env.MONGODB_CONNECTION_URL,
     {
