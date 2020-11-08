@@ -32,7 +32,7 @@
 
 ### [Day 12 - Course Day 10: Database & Mongo Basics](https://github.com/open-devs/webmonk/tree/master/Course%20Day%2010)
 
-### [Day 13 - Course Day 11: Mongoose & Blog Backend](https://github.com/open-devs/webmonk/tree/master/Course%20Day%2011/blog-backend)
+### [Day 13 - Course Day 11: Mongoose & Blog Backend](https://github.com/open-devs/webmonk/tree/master/Course%20Day%2011)
 
 ## Usage
 
