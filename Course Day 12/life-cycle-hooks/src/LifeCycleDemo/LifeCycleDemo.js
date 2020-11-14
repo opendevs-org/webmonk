@@ -41,10 +41,6 @@ class LifeCycleDemo extends React.Component {
     }
     render() {
         console.log("[render]")
-        // let child = null;
-        // if(this.state.showChild){
-        //     child = <Child />
-        // }
         return (
             <div>
                 <p>Life Cycle is in progress...</p>

@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 
-function App() {
+const App = () => {
 
   const [counter, setCounter] = useState(0);
   const [showChild, setShowChild] = useState(true);
