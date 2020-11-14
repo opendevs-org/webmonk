@@ -36,6 +36,8 @@
 
 ### [Day 14 - Course Day 12: React C-1: React, Component Architecture, SPA vs MPA, Babel & Webpack, JSX, Lifecycle methods, Props & State](https://github.com/open-devs/webmonk/tree/master/Course%20Day%2012)
 
+### [Day 15 - Course Day 13: React C-2: Refs, Error Boundary, useState & useEffect, Weather App Part 1](https://github.com/open-devs/webmonk/tree/master/Course%20Day%2013)
+
 ## Assignments
 
 1. Survey Form
