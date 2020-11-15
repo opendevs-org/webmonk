@@ -8,8 +8,6 @@ const WeatherCardSubHeader = props => {
     ? currentWeather.description
     : "";
 
-    // "haze soft vnsvslivdjvsl"
-    // Output: Haze
   return (
     <>
       <span>
@@ -18,12 +16,6 @@ const WeatherCardSubHeader = props => {
         {description.replace(/\w\S*/g, txt => {
           return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
         })}
-        {
-            /*
-                // "haze soft vnsvslivdjvsl"
-                // Output: Haze
-            */
-        }
       </span>
     </>
   );
