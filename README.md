@@ -38,6 +38,8 @@
 
 ### [Day 15 - Course Day 13: React C-2: Refs, Error Boundary, useState & useEffect, Weather App Part 1](https://github.com/open-devs/webmonk/tree/master/Course%20Day%2013)
 
+### [Day 16 - Course Day 14: Weather App Part 2 - Complete](https://github.com/open-devs/webmonk/tree/master/Course%20Day%2014)s
+
 ## Assignments
 
 1. Survey Form
