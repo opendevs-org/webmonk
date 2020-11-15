@@ -60,16 +60,15 @@ const App = () => {
     }
   }
 
-  function getWeather (city) {
-    return fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_APIKEY}`)
+  const getWeather = (city) =>
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_APIKEY}`)
       .then(res => handleResponse(res))
       .then(weather => {
         if (Object.entries(weather).length) {
           const mappedData = mapDataToWeatherInterface(weather);
           return mappedData;
         }
-      })
-  };
+      });
 
   const handleCityChange = city => {
     setCity(city);
@@ -111,6 +110,5 @@ const App = () => {
   }
 
 }
-
 
 export default App;

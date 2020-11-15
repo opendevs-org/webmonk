@@ -1,7 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
-  Grid
+  Grid,
+  Container
 } from "@material-ui/core";
 
 import WeatherCard from './WeatherCard'
@@ -17,7 +18,7 @@ const AppLayout = (props) => {
   const { currentWeather, icon, recommendation } = props;
 
   return (
-    <div className={classes.layout}>
+    <Container className={classes.layout}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <WeatherCard
@@ -28,7 +29,7 @@ const AppLayout = (props) => {
           />
         </Grid>
       </Grid>
-    </div>
+    </Container>
   );
 }
 
