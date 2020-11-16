@@ -17,45 +17,15 @@ const useStyles = makeStyles((theme) => ({
         fontSize: "28px",
         padding: "5px",
     },
-    buttons: {
-        color: "black",
-    },
     card: {
         minWidth: 400,
         minHeight: 400,
-    },
-    container: {
-        display: "flex",
-        flexWrap: "wrap",
-    },
-    error: {
-        color: "red",
-        padding: "10px",
-    },
-    fullList: {
-        width: "auto",
-    },
-    layout: {
-        marginTop: "20px",
-    },
-
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: "center",
-        color: theme.palette.text.secondary,
     },
     recommendation: {
         fontFamily: "Montserrat, sans-serif",
         padding: "20px 0px 10px 0px",
         fontSize: "26px",
         textAlign: "center",
-    },
-    root: {
-        flexiGrow: 1,
-        color: "black",
-    },
-    search: {
-        marginTop: "100px",
     },
     wi: {
         color: "#673ab7",
@@ -68,6 +38,7 @@ const WeatherCard = (props) => {
     const strongWind = "wi wi-strong-wind";
     const { currentWeather, forecast, icon, recommendation } = props;
 
+    //NOTE: on line 47 as we can have any possible JS thing inside curly brackets, we can pass a new component to subheader like that
     return (
         <Card className={classes.card}>
             <CardHeader

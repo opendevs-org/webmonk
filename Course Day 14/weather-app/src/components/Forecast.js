@@ -18,10 +18,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Forecast(props) {
+    //NOTE: getting classes from the useStyles function
     const classes = useStyles();
+    //NOTE: the prefix to use material-ui icons, much like fontawesome fa fa-something
     const prefix = "wi wi-";
     const { forecast } = props;
+
+    //NOTE: iterating over forecast & forming list items for each values
     const result = forecast.map((item, index) => {
+        //NOTE: fetching icons for each day's weather in forecast
         const icon = prefix + weatherIcons.default[item.icon_id].icon;
         return (
             <ListItem key={index} className="forecastItem">
@@ -59,5 +64,6 @@ export default function Forecast(props) {
         );
     });
 
+    //NOTE: putting all the list items into a list finally
     return <List aria-label="forecast data">{result}</List>;
 }

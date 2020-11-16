@@ -14,6 +14,7 @@ const AppLayout = (props) => {
     const classes = useStyles();
     const { currentWeather, forecast, icon, recommendation } = props;
 
+    //NOTE: xs={12} means on small devices stretch to device width on bigger devices be smaller
     return (
         <Container className={classes.layout}>
             <Grid container spacing={3}>

@@ -27,16 +27,20 @@ const useStyles = makeStyles((theme) => ({
 export default function WeatherSearch(props) {
     const classes = useStyles();
     const { error, onCityChange } = props;
+    //NOTE: creating 2 states for search term (search input) & isSearching (to show loader while typing)
     const [searchTerm, setSearchTerm] = useState("");
     const [isSearching, setSearching] = useState(false);
+    //NOTE: get the debounced query, i.e. wait 1 second after user stops typing his query
     const debouncedSearchTerm = useDebounce(searchTerm, 1000);
     const hasError = error ? true : false;
 
+    //NOTE: function to set search input value
     const handleSearch = (event) => {
         setSearching(true);
         setSearchTerm(event.target.value);
     };
 
+    //NOTE: useEffect hook used to call onCityChange & setSearching functions whenever we have new *DEBOUNCED* search term, i.e. a search term after waiting 1 sec of user stopping typing
     useEffect(() => {
         if (debouncedSearchTerm) {
             onCityChange(debouncedSearchTerm);
@@ -44,6 +48,7 @@ export default function WeatherSearch(props) {
         }
     }, [onCityChange, debouncedSearchTerm, isSearching]);
 
+    //NOTE: startAdornment means what to append to start of input, endAdornment means what to append to the end of the input
     return (
         <div className={classes.search}>
             <Grid container alignItems="flex-end">
