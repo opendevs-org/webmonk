@@ -72,7 +72,7 @@ const getForecast = (city) =>
     .then((res) => handleResponse(res))
     .then((result) => {
         if (Object.entries(result).length) {
-            const forecast = []; //Note: Forcast Data is an array of data
+            const forecast = []; //Note: Forecast Data is an array of data
             for (let i = 0; i < result.list.length; i += 8) { //NOTE: openweathermap provides 8 different time data for each day's forecast, i.e. for Monday it provides data of 3:00AM, 6:00AM & so on.. To get unique data of each day, increment by 8
                 forecast.push(
                     mapDataToWeatherInterface(result.list[i + 4]) //NOTE: as we have 8 different time's data of each day, 4th one is 12th hour so i + 4
