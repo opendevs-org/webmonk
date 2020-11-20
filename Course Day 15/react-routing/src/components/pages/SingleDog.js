@@ -5,7 +5,7 @@ const SingleDog = ({ dogs, match, history }) => {
     const [dog, setDog] = useState();
     
     useEffect(() => {        
-        const { name } = match.params;
+        const { name } = match.params; //NOTE: getting name parameter from route, for ex: /dog/husky has husky as parameter
         const foundDog = dogs.filter(dog => name === dog.name);
     
         if (!foundDog.length)

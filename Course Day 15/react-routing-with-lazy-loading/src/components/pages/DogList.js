@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 
+//NOTE: first checking if props.dogs is an array in line 10, if so then loop on it and make components from each values in props.dogs array
+
 const DogList = props => (
     <>
         <h1>Dog List</h1>

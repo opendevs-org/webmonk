@@ -15,6 +15,9 @@ const App = () => {
         { name: 'brisk' }
     ]
 
+    //NOTE: notice we are using component in line 35, see the same line in lazy loading, when not loading dynamically we can use component, when loading dynamically
+    // where code is not available at start render is used.
+
     return (
         <div className="container p-5">
             <div className="row justify-content-sm-center">
@@ -29,9 +32,7 @@ const App = () => {
                                 key={i}
                                 exact
                                 path={path}
-                                component={() => {
-                                    return <Component dogs={dogs} />
-                                }}
+                                component={() => <Component dogs={dogs} />}
                             />
                         ))}
                     </Router>

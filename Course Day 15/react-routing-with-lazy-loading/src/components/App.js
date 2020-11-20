@@ -16,6 +16,10 @@ const App = () => {
         { name: 'brisk' }
     ]
 
+    //NOTE: Suspense used to handle asynchronous components loading from API
+    //NOTE: instead of component in line 39, we are using render function to render our components dynamically
+    //NOTE: Switch opens only one matching route at once
+
     return (
         <div className="container p-5">
             <div className="row justify-content-sm-center">
