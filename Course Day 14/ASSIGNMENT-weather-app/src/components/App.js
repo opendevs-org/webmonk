@@ -5,8 +5,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 import AppLayout from "./AppLayout";
 
-//NOTE: set the google api key in .env file, and restart the yarn start, then remove this comment
-
 const mapDataToWeatherInterface = (data) => {
     const mapped = {
         city: data.name,
@@ -135,12 +133,15 @@ const App = () => {
             })
             .catch(err => setError(err.message));
 
-        //NOTE: using HTML 5 navigator API for location access
-        if (navigator.geolocation) { //NOTE: Checking if navigator API supported by the browser
-            //NOTE: get the location from navigator
-            //NOTE: call the getLocation(latitude, longitude);
-            //NOTE: in getLocation.then set the city using `setCity(data.results[0].address_components[2].long_name)` exactly as it is & setError(null)
-            //NOTE: in getLocation.catch set the error using setError(err.message)
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(({ coords }) => {
+                getLocation(coords.latitude, coords.longitude)
+                    .then(data => {
+                        setCity(`${data.results[0].address_components[2].long_name}`);
+                        setError(null);
+                    })
+                    .catch(err => setError(err.message));
+            });
         } else {
             setError("Geolocation is not supported by this browser.");
         }
