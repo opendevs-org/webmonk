@@ -1,0 +1,29 @@
+{
+  "name": "todo-project",
+  "version": "0.0.1",
+  "description": "this codebase is the backend for Express TODO'S application with added functionality",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "todo",
+    "Node.js"
+  ],
+  "author": "opendevs",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "inspirational-quotes": "^1.0.8",
+    "mongoose": "^5.10.13",
+    "morgan": "1.10.0",
+    "node-cron": "^2.0.3",
+    "nodemailer": "^6.4.17"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
