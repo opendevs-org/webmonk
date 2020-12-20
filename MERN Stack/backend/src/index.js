@@ -40,9 +40,7 @@ mongoose.connect(
     }
 );
 
-cron.schedule('*/3 * * * *', async () => {
-    // '0 23 * * *'  -- Daily 11 PM
-    // It will run every 3 minute
+cron.schedule('0 23 * * *', async () => {
     await cronService();
 });
 

@@ -17,7 +17,7 @@ module.exports = {
     },
     getAll: async (req, res, next) => {
         try {
-            const data = await Todo.find({});
+            const data = await Todo.find({}).sort({ "_id": -1 });
             res.status(200).send(data);
         } catch (error) {
             next(error);

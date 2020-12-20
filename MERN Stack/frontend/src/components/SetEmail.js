@@ -4,6 +4,8 @@ import axios from 'axios';
 export default function SetEmail({ history }) {
   const [email, setEmail] = useState('');
 
+  //NOTE: try to fetch email using useEffect, you'll have to create a API for that
+
   const onSubmit = e => {
     e.preventDefault();
 

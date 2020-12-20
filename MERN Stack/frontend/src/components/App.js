@@ -8,6 +8,8 @@ import SetEmail from "./SetEmail";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
+//NOTE: try to work on lazy loading
+
 function App() {
   return (
     <Router>

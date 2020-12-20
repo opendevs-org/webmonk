@@ -18,7 +18,6 @@ export default function Nav() {
                 Create
               </Link>
             </li>
-            {/* TODO: open model for default email */}
             <li className="nav-item mr-4" style={{ display: "inline-block" }}>
               <Link className="nav-link" to="/set-email">
                 Default Email
