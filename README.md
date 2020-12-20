@@ -40,6 +40,8 @@
 
 ### [Day 16 - Course Day 14: Weather App Part 2 - Complete](https://github.com/open-devs/webmonk/tree/master/Course%20Day%2014)s
 
+### [Day 17 - Course Day 15: State Management & Redix](https://github.com/open-devs/webmonk/tree/master/Course%20Day%2015)s
+
 ## Assignments
 
 1. Survey Form
