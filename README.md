@@ -54,6 +54,10 @@
 
 4. Node Express JWT Mongoose CRUD
 
+5. Weather application
+
+6. Group Projects
+
 ## Usage
 
 ```sh
