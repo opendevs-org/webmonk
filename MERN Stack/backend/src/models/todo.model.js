@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 const todoSchema = new mongoose.Schema(
     {
-        todoDesc: { type: String },
-        todoResponsible: { type: String },
-        todoPriority: { type: String },
-        todoCompleted: { type: Boolean }
+        title: { type: String },
+        description: { type: String },
+        priority: { type: String },
+        completed: { type: Boolean }
     },
     {
         timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' },

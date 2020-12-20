@@ -8,7 +8,7 @@ const { cronService } = require('./services/cron.service');
 const morgan = require("morgan");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3030;
 
 // set up express
 app.use(express.json());
@@ -47,5 +47,5 @@ cron.schedule("* * * * *", async () => {
 });
 
 app.listen(PORT, () =>
-    console.log(`Express server currently running on port 3000`)
+    console.log(`Express server currently running on port 3030`)
 );
