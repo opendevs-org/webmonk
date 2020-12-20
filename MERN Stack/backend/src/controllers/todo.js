@@ -44,7 +44,7 @@ module.exports = {
     deleteById: async (req, res, next) => {
         try {
             const _id = req.params._id;
-            const deletedItem = await Blog.findByIdAndDelete(_id);
+            const deletedItem = await Todo.findByIdAndDelete(_id);
             res.status(200).json(deletedItem);
         } catch (error) {
             next(error);

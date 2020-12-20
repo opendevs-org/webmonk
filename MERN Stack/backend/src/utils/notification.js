@@ -17,7 +17,7 @@ module.exports = {
             await transporter.sendMail({
                 from: '"Todo Notification 👻" <todo@notification.com>', // sender address
                 to: to, // list of receivers
-                subject: subject, // Subject line\
+                subject: subject, // Subject line
                 html: body, // html body
             });
         } catch (error) {
