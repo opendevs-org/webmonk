@@ -1,11 +1,11 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-require("dotenv").config();
-const routes = require("./routes/index");
-const cron = require("node-cron");
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+require('dotenv').config();
+const routes = require('./routes/index');
+const cron = require('node-cron');
 const { cronService } = require('./services/cron.service');
-const morgan = require("morgan");
+const morgan = require('morgan');
 
 const app = express();
 const PORT = process.env.PORT || 3030;
@@ -14,18 +14,18 @@ const PORT = process.env.PORT || 3030;
 app.use(express.json());
 app.use(cors());
 app.use(morgan('dev'));
-app.use("/api", routes);
+app.use('/api', routes);
 
 app.use((req, res, next) => {
-    let err = new Error("Not Found");
+    let err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
 
 app.use((err, req, res, next) => {
     console.log(err);
-    if (err.status === 404) res.status(404).json({ message: "Not found" });
-    else res.status(500).json({ message: "Something looks wrong :( !!!" });
+    if (err.status === 404) res.status(404).json({ message: 'Not found' });
+    else res.status(500).json({ message: 'Something looks wrong :( !!!' });
 });
 
 mongoose.connect(
@@ -36,13 +36,13 @@ mongoose.connect(
     },
     (err) => {
         if (err) console.error(err);
-        console.log("MONGODB connected successfully");
+        console.log('MONGODB connected successfully');
     }
 );
 
-cron.schedule("*/3 * * * *", async () => {
-    // It will run every minute
-    // console.log('running a task every minute');
+cron.schedule('*/3 * * * *', async () => {
+    // '0 23 * * *'  -- Daily 11 PM
+    // It will run every 3 minute
     await cronService();
 });
 

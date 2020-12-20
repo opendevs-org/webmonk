@@ -1,4 +1,4 @@
-const nodemailer = require("nodemailer");
+const nodemailer = require('nodemailer');
 
 module.exports = {
     sendEmail: async (to, subject, body) => {
@@ -15,7 +15,7 @@ module.exports = {
                 // },
             });
             await transporter.sendMail({
-                from: '"Todo Notification 👻" <todo@notification.com>', // sender address
+                from: "Todo Notification 👻' <todo@notification.com>", // sender address
                 to: to, // list of receivers
                 subject: subject, // Subject line
                 html: body, // html body
