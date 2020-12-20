@@ -24,6 +24,7 @@
     "nodemailer": "^6.4.17"
   },
   "devDependencies": {
+    "maildev": "^1.1.0",
     "nodemon": "^2.0.6"
   }
 }
